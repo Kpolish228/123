@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#0B1020" />
+	<title>Portfolio - About</title>
+	<meta name="description" content="Portfolio: about, skills, and contacts." />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<!-- Можно заменить шрифты на локальные при желании -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+	<link rel="stylesheet" href="assets/css/styles.css" />
+	<style>
+		/* НАСТРОЙКИ РАЗМЕРА АВЫ: меняй эти значения */
+		:root{
+			--avatar-min: 150px;  /* минимальный размер */
+			--avatar-ideal: 18vw; /* “идеал” на адаптиве */
+			--avatar-max: 230px;  /* максимальный размер */
+			--avatar-ratio: 4 / 5;/* пропорции (ширина/высота) */
+
+			/* сдвиг авы вниз (0 = без сдвига) */
+			--avatar-offset-y: 0px;
+		}
+
+		/* компактнее и аккуратнее аватар в hero */
+		.hero-card .avatar.avatar--me {
+			width: clamp(var(--avatar-min), var(--avatar-ideal), var(--avatar-max));
+			aspect-ratio: var(--avatar-ratio);
+			margin-inline: auto;
+			margin-top: var(--avatar-offset-y);
+
+			border-radius: 18px;
+			overflow: hidden;	
+
+			background: rgba(255, 255, 255, 0.04);
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+		}
+
+		.hero-card .avatar.avatar--me > img.avatar__img {
+			width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+			object-position: center;
+			transform: scale(1.02);
+		}
+
+		/* выравнивание блока авы внутри hero-card */
+		.hero-card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 14px;
+			text-align: center;
+		}
+
+		.hero-card .hero-card-body {
+			width: 100%;
+		}
+
+		.hero-card .status {
+			justify-content: center; /* если .status = flex в styles.css */
+		}
+
+		.hero-card .avatar.avatar--me {
+			line-height: 0; /* убирает “щель”/перекос под img */
+		}
+
+		@media (min-width: 900px){
+			:root{
+				--avatar-offset-y: 16px; /* <-- меняй это число, чтобы опустить/поднять фото */
+			}
+
+			.hero-card{
+				align-self: center; /* карточка напротив текста слева */
+			}
+		}
+
+		.card--quick{
+			text-align: left;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.card--quick .card-title,
+		.card--quick .card-text,
+		.card--quick .hint{
+			margin: 0;
+		}
+		.card--quick .btn.btn-wide{
+			margin-block: auto; /* кнопка по центру, текст/подсказка не “в углу” */
+		}
+	</style>
+</head>
+
+<body>
+	<a class="skip-link" href="#content">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="brand" href="index.html" aria-label="Home">
+				<span class="brand-mark" aria-hidden="true"></span>
+				<span class="brand-text">Portfolio</span>
+			</a>
+
+			<nav class="nav">
+				<a class="nav-link is-active" href="index.html">About</a>
+				<a class="nav-link" href="projects.html">Projects</a>
+				<a class="nav-link" href="#contacts" data-scroll>Contacts</a>
+			</nav>
+
+			<div class="header-actions">
+				<a class="btn btn-ghost" href="#contacts" data-scroll>Contact</a>
+			</div>
+		</div>
+	</header>
+
+	<main id="content">
+		<section class="hero">
+			<div class="container hero-grid">
+				<div class="hero-copy reveal">
+					<p class="eyebrow">Web • Frontend</p>
+					<h1 class="hero-title">
+						<span class="hero-title-accent">Ivanenko Vladyslav</span><br />
+						I craft clean, premium interfaces
+					</h1>
+
+					<p class="hero-subtitle">
+						Frontend is my core, backend is a strong plus.
+                        I build websites, telegram bots, and automation tools.
+                        Every client gets an individual approach and a fast launch.
+					</p>
+
+					<div class="hero-cta">
+						<a class="btn btn-primary" href="projects.html">View projects</a>
+						<a class="btn btn-secondary" href="#contacts" data-scroll>Contact me</a>
+					</div>
+
+					<div class="hero-meta">
+						<div class="meta-pill">
+							<span class="meta-k">Focus</span>
+							<span class="meta-v">UI, responsiveness, performance</span>
+						</div>
+						<div class="meta-pill">
+							<span class="meta-k">Format</span>
+							<span class="meta-v">website / landing / showcase</span>
+						</div>
+					</div>
+				</div>
+
+				<aside class="hero-card reveal" aria-label="Photo and status">
+					<div class="avatar avatar--me">	
+						<img class="avatar__img" src="images/mp.jpg" alt="My photo" loading="lazy" />
+					</div>
+					<div class="hero-card-body">
+						<div class="status">
+							<span class="dot" aria-hidden="true"></span>
+							<span>Available for work</span>
+						</div>
+						<p class="hero-card-note">
+							premium visuals, clean markup - clarity over noise.
+						</p>
+					</div>
+				</aside>
+			</div>
+
+			<div class="hero-bg" aria-hidden="true"></div>
+		</section>
+
+		<section class="section" id="about">
+			<div class="container section-grid">
+				<div class="section-head reveal">
+					<h2 class="section-title">About</h2>
+					<p class="section-lead">
+						<!-- Extended description -->
+						I’m a hands-on developer focused on telegram bots and modern websites.
+                        My experience comes from building real projects end-to-end, not tutorials.
+                        I work fast, then polish the result - clean structure, clear logic, solid visuals.
+                        Open to different tasks, flexible in approach, and fully involved in every project.           
+					</p>
+				</div>
+
+				<div class="cards-2">
+					<article class="card reveal">
+						<h3 class="card-title">What I do</h3>
+						<p class="card-text">
+							<!-- Placeholder -->
+							I design interfaces, build small design systems, create responsive pages, and ship to production.
+						</p>
+						<ul class="list">
+							<li><!-- placeholder -->Landing pages and service showcases</li>
+							<li><!-- placeholder -->Promo pages and portfolios</li>
+							<li><!-- placeholder -->UI polish and redesigns</li>
+						</ul>
+					</article>
+
+					<article class="card reveal">
+						<h3 class="card-title">How I help</h3>
+						<p class="card-text">
+							<!-- Placeholder -->
+							I deliver a “premium” look: typography, grids, details, and micro-interactions - without overdoing it.
+						</p>
+						<ul class="list">
+							<li><!-- placeholder -->Clean, readable HTML/CSS/JS</li>
+							<li><!-- placeholder -->Speed and solid responsiveness</li>
+							<li><!-- placeholder -->Clear structure and conversion-focused layout</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="skills">
+			<div class="container section-grid">
+				<div class="section-head reveal">
+					<h2 class="section-title">Skills</h2>
+					<p class="section-lead">
+						<!-- Placeholder -->
+						Stack and tools - what I actually use in real projects.
+					</p>
+				</div>
+
+				<div class="cards-3">
+					<article class="card reveal">
+						<h3 class="card-title">Programming</h3>
+						<p class="card-text muted">Languages</p>
+						<div class="tags">
+							<span class="tag">HTML</span>
+							<span class="tag">CSS</span>
+							<span class="tag">JavaScript</span>
+							<span class="tag">Python</span>
+							<span class="tag">PHP</span>
+						</div>
+					</article>
+
+					<article class="card reveal">
+						<h3 class="card-title">Tools</h3>
+						<p class="card-text muted">Tools</p>
+						<div class="tags">
+							<span class="tag">Git</span>
+							<span class="tag">Figma</span>
+							<span class="tag">VS Code</span>
+							<span class="tag">Webpack</span>
+						</div>
+					</article>
+
+					<article class="card reveal">
+						<h3 class="card-title">Languages</h3>
+						<ul class="levels">
+							<li><span>English</span><span class="level">B1–B2</span></li>
+							<li><span>Ukrainian</span><span class="level">Native</span></li>
+							<li><span>Russian</span><span class="level">Native</span></li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="contacts">
+			<div class="container section-grid">
+				<div class="section-head reveal">
+					<h2 class="section-title">Contacts</h2>
+					<p class="section-lead">
+						<!-- Placeholder -->
+						Message me - I reply with clarity. You can attach references and a short brief.
+					</p>
+				</div>
+
+				<div class="contact-grid">
+					<article class="card reveal">
+						<h3 class="card-title">Links</h3>
+
+						<div class="contact-list">
+							<a class="contact-item" href="https://github.com/Kpolish228" target="_blank" rel="noreferrer">
+								<span class="contact-k">GitHub</span>
+								<span class="contact-v">github.com/Kpolish228</span>
+							</a>
+
+							<a class="contact-item" href="https://instagram.com/yaxxaxaaxa" target="_blank" rel="noreferrer">
+								<span class="contact-k">Instagram</span>
+								<span class="contact-v">instagram.com/yaxxaxaaxa</span>
+							</a>
+
+							<a class="contact-item" href="https://t.me/EsShift" target="_blank" rel="noreferrer">
+								<span class="contact-k">Telegram</span>
+								<span class="contact-v">t.me/EsShift</span>
+							</a>
+
+							<a class="contact-item" href="mailto:kpgo.2019@gmail.com">
+								<span class="contact-k">Email</span>
+								<span class="contact-v">kpgo.2019@gmail.com</span>
+							</a>
+
+							<!-- Optional: future channel with work -->
+							<a class="contact-item is-muted" href="https://t.me/channel" target="_blank" rel="noreferrer" aria-disabled="true">
+								<span class="contact-k">Telegram channel</span>
+								<span class="contact-v">t.me/channel</span>
+							</a>
+						</div>
+					</article>
+
+					<article class="card reveal card--quick">
+						<h3 class="card-title">Quick request</h3>
+						<p class="card-text">
+							Click to open Telegram with a prefilled message.
+						</p>
+
+						<a class="btn btn-primary btn-wide"
+						   href="https://t.me/EsShift?text=Hi%21%20I%27d%20like%20to%20clarify%20a%20few%20details.%20Brief%3A%20"
+						   target="_blank" rel="noreferrer noopener">
+							Message on Telegram
+						</a>
+
+						<p class="hint">
+							Tip: include budget, timeline, references, and required sections.
+						</p>
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p class="muted">© <span id="y"></span> <!-- Name/Nickname -->. All rights reserved.</p>
+			<a class="muted link" href="projects.html">Go to projects</a>
+		</div>
+	</footer>
+
+	<script src="assets/js/main.js" defer></script>
+</body>
+</html>
